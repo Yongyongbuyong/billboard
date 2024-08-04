@@ -54,50 +54,89 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/dashboard/index.vue"),
         name: "Dashboard",
         meta: {
-          title: "首页",
-          svgIcon: "dashboard",
+          title: "Home",
+          elIcon: "HomeFilled",
           affix: true
         }
       }
     ]
   },
   {
-    path: "/unocss",
+    path: "/IdSe",
     component: Layouts,
-    redirect: "/unocss/index",
+    redirect: "/IdSe/index",
     children: [
       {
         path: "index",
-        component: () => import("@/views/unocss/index.vue"),
-        name: "UnoCSS",
+        component: () => import("@/views/IdentificationSegmentation/index.vue"),
+        name: "IdSe",
         meta: {
-          title: "UnoCSS",
-          svgIcon: "unocss"
+          title: "IdentificationSegmentation",
+          elIcon: "Grid"
         }
       }
     ]
   },
   {
-    path: "/link",
-    meta: {
-      title: "外链",
-      svgIcon: "link"
-    },
+    path: "/IdCo",
+    component: Layouts,
+    redirect: "/IdCo/index",
     children: [
       {
-        path: "https://juejin.cn/post/7089377403717287972",
-        component: () => {},
-        name: "Link1",
+        path: "index",
+        component: () => import("@/views/IdentificationConfirmation/index.vue"),
+        name: "IdCo",
         meta: {
-          title: "中文文档"
+          title: "IdentificationConfirmation",
+          elIcon: "CircleCheckFilled"
         }
-      },
+      }
+    ]
+  },
+  {
+    path: "/SA_De",
+    component: Layouts,
+    redirect: "/SA_De/index",
+    children: [
       {
-        path: "https://juejin.cn/column/7207659644487139387",
-        component: () => {},
-        name: "Link2",
+        path: "index",
+        component: () => import("@/views/StructuralAnalysis_Defect/index.vue"),
+        name: "SA_De",
         meta: {
-          title: "新手教程"
+          title: "StructuralAnalysis_Defect",
+          elIcon: "WarnTriangleFilled"
+        }
+      }
+    ]
+  },
+  {
+    path: "/Query",
+    component: Layouts,
+    redirect: "/Query/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/Query_Inspection/index.vue"),
+        name: "Query",
+        meta: {
+          title: "Query_Inspection",
+          elIcon: "DocumentChecked"
+        }
+      }
+    ]
+  },
+  {
+    path: "/OperationLog",
+    component: Layouts,
+    redirect: "/OperationLog/index",
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/operationLog/index.vue"),
+        name: "OperationLog",
+        meta: {
+          title: "OperationLog",
+          elIcon: "Operation"
         }
       }
     ]
@@ -109,6 +148,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     name: "Table",
     meta: {
       title: "表格",
+      hidden: true, //用于选择是否隐藏此菜单选项
       elIcon: "Grid"
     },
     children: [
@@ -139,6 +179,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     name: "Menu",
     meta: {
       title: "多级路由",
+      hidden: true, //用于选择是否隐藏此菜单选项
       svgIcon: "menu"
     },
     children: [
@@ -210,44 +251,44 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       }
     ]
-  },
-  {
-    path: "/hook-demo",
-    component: Layouts,
-    redirect: "/hook-demo/use-fetch-select",
-    name: "HookDemo",
-    meta: {
-      title: "Hook",
-      elIcon: "Menu",
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: "use-fetch-select",
-        component: () => import("@/views/hook-demo/use-fetch-select.vue"),
-        name: "UseFetchSelect",
-        meta: {
-          title: "useFetchSelect"
-        }
-      },
-      {
-        path: "use-fullscreen-loading",
-        component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
-        name: "UseFullscreenLoading",
-        meta: {
-          title: "useFullscreenLoading"
-        }
-      },
-      {
-        path: "use-watermark",
-        component: () => import("@/views/hook-demo/use-watermark.vue"),
-        name: "UseWatermark",
-        meta: {
-          title: "useWatermark"
-        }
-      }
-    ]
   }
+  // {
+  //   path: "/hook-demo",
+  //   component: Layouts,
+  //   redirect: "/hook-demo/use-fetch-select",
+  //   name: "HookDemo",
+  //   meta: {
+  //     title: "Hook",
+  //     elIcon: "Menu",
+  //     alwaysShow: true
+  //   },
+  //   children: [
+  //     {
+  //       path: "use-fetch-select",
+  //       component: () => import("@/views/hook-demo/use-fetch-select.vue"),
+  //       name: "UseFetchSelect",
+  //       meta: {
+  //         title: "useFetchSelect"
+  //       }
+  //     },
+  //     {
+  //       path: "use-fullscreen-loading",
+  //       component: () => import("@/views/hook-demo/use-fullscreen-loading.vue"),
+  //       name: "UseFullscreenLoading",
+  //       meta: {
+  //         title: "useFullscreenLoading"
+  //       }
+  //     },
+  //     {
+  //       path: "use-watermark",
+  //       component: () => import("@/views/hook-demo/use-watermark.vue"),
+  //       name: "UseWatermark",
+  //       meta: {
+  //         title: "useWatermark"
+  //       }
+  //     }
+  //   ]
+  // }
 ]
 
 /**
@@ -256,37 +297,37 @@ export const constantRoutes: RouteRecordRaw[] = [
  * 必须带有 Name 属性
  */
 export const dynamicRoutes: RouteRecordRaw[] = [
-  {
-    path: "/permission",
-    component: Layouts,
-    redirect: "/permission/page",
-    name: "Permission",
-    meta: {
-      title: "权限",
-      svgIcon: "lock",
-      roles: ["admin", "editor"], // 可以在根路由中设置角色
-      alwaysShow: true // 将始终显示根菜单
-    },
-    children: [
-      {
-        path: "page",
-        component: () => import("@/views/permission/page.vue"),
-        name: "PagePermission",
-        meta: {
-          title: "页面级",
-          roles: ["admin"] // 或者在子导航中设置角色
-        }
-      },
-      {
-        path: "directive",
-        component: () => import("@/views/permission/directive.vue"),
-        name: "DirectivePermission",
-        meta: {
-          title: "按钮级" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
-        }
-      }
-    ]
-  }
+  // {
+  //   path: "/permission",
+  //   component: Layouts,
+  //   redirect: "/permission/page",
+  //   name: "Permission",
+  //   meta: {
+  //     title: "权限",
+  //     svgIcon: "lock",
+  //     roles: ["admin", "editor"], // 可以在根路由中设置角色
+  //     alwaysShow: true // 将始终显示根菜单
+  //   },
+  //   children: [
+  //     {
+  //       path: "page",
+  //       component: () => import("@/views/permission/page.vue"),
+  //       name: "PagePermission",
+  //       meta: {
+  //         title: "页面级",
+  //         roles: ["admin"] // 或者在子导航中设置角色
+  //       }
+  //     },
+  //     {
+  //       path: "directive",
+  //       component: () => import("@/views/permission/directive.vue"),
+  //       name: "DirectivePermission",
+  //       meta: {
+  //         title: "按钮级" // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+  //       }
+  //     }
+  //   ]
+  // }
 ]
 
 const router = createRouter({
